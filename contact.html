@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/form.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="jeu.html">Jeu</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h1>Contact</h1>
+
+        <form action="" method="get">
+            
+            <div class="form-row">
+                <label for="email">Email:</label>
+                <input class="form-field" id="email" required type="email" name="email" placeholder="Entrez votre email" />
+            </div>
+
+            <div class="form-row">
+                <label for="subject">Sujet</label>
+                <select class="form-field" id="subject">
+                    <option value="1">Item 1</option>
+                    <option value="2">Item 2</option>
+                    <option value="3">Item 3</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label for="message">Message:</label>
+                <textarea 
+                    class="form-field"
+                    id="message"
+                    rows="5"
+                    placeholder="Entrez votre message"
+                ></textarea>
+            </div>
+
+            <div class="form-row">
+                <label for="important">Important</label>
+                <input id="important" type="checkbox" checked name="important" />
+            </div>
+            
+            <div class="form-row">
+                <input 
+                    type="submit" 
+                    class="form-field" 
+                    name="send" 
+                    value="Contacter" 
+                />
+            </div>
+        </form>
+    </main>
+
+    <!-- commentaire HTML -->
+    <footer>
+        <p>Footer de la page</p>
+    </footer>
+</body>
+
+</html>

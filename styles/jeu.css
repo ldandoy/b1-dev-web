@@ -1,0 +1,9 @@
+.box {
+    background: rebeccapurple;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 210px;
+    left: 210px;
+    cursor: pointer;
+}

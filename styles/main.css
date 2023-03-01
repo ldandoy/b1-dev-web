@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: burlywood;
+}
+
+nav ul {
+    display: flex;
+    background: beige;
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: green;
+    font-weight: 900;
+}
+
+nav ul li a:hover {
+    color: goldenrod;
+    background: green;
+}
+
+p {
+    color: green;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
