@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     function dd($var) {
         echo "<pre>";
         var_dump($var);
@@ -10,7 +12,7 @@
 
     function connect () {
         $link = new PDO(
-            'mysql:dbname=game-php;host=mysql', 
+            'mysql:dbname=game;host=mysql', 
             'root', 
             ''
         );
