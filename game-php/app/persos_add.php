@@ -44,7 +44,7 @@
                 />
             </div>
             <div class="mt-4">
-                <input type="submit" class="btn btn-blue" name="send" value="Créer" />
+                <input type="submit" class="btn btn-green" name="send" value="Créer" />
                 <a class="btn btn-grey" href="persos.php">Retour</a>
             </div>
         </form>

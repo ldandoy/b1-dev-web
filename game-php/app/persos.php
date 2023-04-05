@@ -50,6 +50,11 @@
                         >Détails</a>
 
                         <a 
+                            class="btn btn-blue"
+                            href="persos_edit.php?id=<?php echo $perso['id']; ?>" 
+                        >Modifier</a>
+
+                        <a 
                             class="btn btn-red"
                             href="persos_del.php?id=<?php echo $perso['id']; ?>" 
                             onClick="return confirm('Etes-vous sûr ?');"
