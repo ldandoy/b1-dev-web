@@ -57,7 +57,7 @@
             />
         </div>
         <div>
-            <input type="submit" name="send" value="Créer" />
+            <input type="submit" name="send" value="Connexion" />
         </div>
     </form>
 </body>
