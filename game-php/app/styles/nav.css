@@ -1,0 +1,13 @@
+#nav {
+    background-color: cornflowerblue;
+    display: flex;
+    list-style: none;
+    justify-content: end;
+}
+
+#nav a {
+    color: aliceblue;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+}

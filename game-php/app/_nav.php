@@ -1,4 +1,4 @@
-<ul>
+<ul id="nav">
     <?php if (!isset($_SESSION['user'])) { ?>
         <li><a href="register.php">Créer un compte</a></li>
         <li><a href="login.php">Connexion</a></li>

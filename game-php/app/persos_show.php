@@ -25,13 +25,40 @@
 
 <?php require_once('_header.php'); ?>
 
-<h1>Détails du personnage</h1>
+<div class="container">
+    <h1>Détails du personnage</h1>
 
-<b>Nom:</b> <?php echo $perso['name']; ?>
+    <div>
+        <b>Nom:</b> <?php echo $perso['name']; ?>
+    </div>
+    
+    <div class="mt-2">
+        <b>Force:</b> <?php echo $perso['for']; ?>
+    </div>
 
-<div>
-    <a href="persos.php">Retour</a>
+    <div class="mt-2">
+        <b>Dextérité:</b> <?php echo $perso['dex']; ?>
+    </div>
+
+    <div class="mt-2">
+        <b>Intélligence:</b> <?php echo $perso['int']; ?>
+    </div>
+
+    <div class="mt-2">
+        <b>Charisme:</b> <?php echo $perso['char']; ?>
+    </div>
+
+    <div class="mt-2">
+        <b>Vitesse:</b> <?php echo $perso['vit']; ?>
+    </div>
+
+    <div class="mt-2">
+        <b>Point de vie:</b> <?php echo $perso['pdv']; ?>
+    </div>
+    
+    <div class="mt-4">
+        <a href="persos.php" class="btn btn-grey">Retour</a>
+    </div>
 </div>
-
 </body>
 </html>

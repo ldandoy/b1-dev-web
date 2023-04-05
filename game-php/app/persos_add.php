@@ -30,23 +30,25 @@
 ?>
 
 <?php require_once('_header.php'); ?>
-
-    <h1>Créer un personnage</h1>
-    <form action="" method="post">
-        <div>
-            <label for="name">Nom</label>
-            <input 
-                type="text"
-                id="name"
-                name="name"
-                placeholer="Entrez un nom"
-                required
-            />
-        </div>
-        <div>
-            <input type="submit" name="send" value="Créer" />
-        </div>
-    </form>
+    <div class="container">
+        <h1>Créer un personnage</h1>
+        <form action="" method="post">
+            <div>
+                <label for="name">Nom</label>
+                <input 
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholer="Entrez un nom"
+                    required
+                />
+            </div>
+            <div class="mt-4">
+                <input type="submit" class="btn btn-blue" name="send" value="Créer" />
+                <a class="btn btn-grey" href="persos.php">Retour</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
 
