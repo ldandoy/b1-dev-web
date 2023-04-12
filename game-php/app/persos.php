@@ -46,6 +46,11 @@
                     <td>
                         <a 
                             class="btn btn-grey"
+                            href="persos_choice.php?id=<?php echo $perso['id']; ?>" 
+                        >Choisir</a>
+
+                        <a 
+                            class="btn btn-grey"
                             href="persos_show.php?id=<?php echo $perso['id']; ?>" 
                         >Détails</a>
 
