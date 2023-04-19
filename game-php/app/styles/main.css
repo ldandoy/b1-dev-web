@@ -30,6 +30,10 @@ h1 {
     margin: 20px 0;
 }
 
+h2 {
+    margin: 20px 0;
+}
+
 .btn {
     border: none;
     padding: 10px;
@@ -82,4 +86,8 @@ h1 {
 
 .mt-4 {
     margin-top: 2rem;
+}
+
+.px-4 {
+    padding: 0 2rem;
 }

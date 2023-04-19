@@ -30,8 +30,8 @@
 
 <?php require_once('_header.php'); ?>
     <div class="container">
-        <div class="row">
-            <div class="">
+        <div class="row mt-4">
+            <div class="px-4">
                 <?php require_once('_perso.php'); ?>
             </div>
             <div class="">
