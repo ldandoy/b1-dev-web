@@ -10,6 +10,10 @@
         header('Location: persos.php');
     }
 
+    if (isset($_SESSION['fight'])){
+        unset($_SESSION['fight']);
+    }
+
     $bdd = connect();
 
     $sql= "SELECT * FROM `rooms` WHERE donjon_id = :donjon_id ORDER BY RAND() LIMIT 1;";
@@ -24,8 +28,6 @@
 
     require_once('./classes/Room.php');
     $roomObject = new Room($room);
-
-    // $roomObject->name = "toto";
 ?>
 
 <?php require_once('_header.php'); ?>
