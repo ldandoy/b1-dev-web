@@ -28,6 +28,7 @@
 
     require_once('./classes/Room.php');
     $roomObject = new Room($room);
+    $roomObject->makeAction();
 ?>
 
 <?php require_once('_header.php'); ?>
@@ -39,7 +40,7 @@
             <div class="">
                 <h1><?php echo $roomObject->getName(); ?></h1>
                 <p><?php echo $roomObject->getDescription(); ?></p>
-                <?php echo $roomObject->getAction(); ?>
+                <?php echo $roomObject->getHTML(); ?>
             </div>
         </div>
     </div>
