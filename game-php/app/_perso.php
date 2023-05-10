@@ -1,9 +1,12 @@
-<h2><?php echo $_SESSION['perso']['name']; ?></h2>
+<h2><?php echo $_SESSION['perso']['name']; ?><div class="small">(<a href="persos.php">Changer</a>)</div></h2>
 <div>
     <b>Point de vie:</b> <?php echo $_SESSION['perso']['pdv']; ?></h2>
 </div>
 <div>
     <b>Or:</b> <?php echo $_SESSION['perso']['gold']; ?></h2>
+</div>
+<div>
+    <b>Xp:</b> <?php echo $_SESSION['perso']['xp']; ?></h2>
 </div>
 <div class="mt-4">
     <b>Force:</b> <?php echo $_SESSION['perso']['for']; ?></h2>

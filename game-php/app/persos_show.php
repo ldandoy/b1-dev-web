@@ -55,6 +55,10 @@
     <div class="mt-2">
         <b>Point de vie:</b> <?php echo $perso['pdv']; ?>
     </div>
+
+    <div class="mt-2">
+        <b>Or:</b> <?php echo $perso['gold']; ?>
+    </div>
     
     <div class="mt-4">
         <a href="persos.php" class="btn btn-grey">Retour</a>

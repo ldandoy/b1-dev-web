@@ -63,8 +63,8 @@
 
                 if ($_SESSION['fight']['ennemi']->pol <= 0) {
                     $_SESSION['perso']['gold'] += $_SESSION['fight']['ennemi']->gold;
-                    $_SESSION['fight']['html'][] = "Vous gagnez " . $_SESSION['fight']['ennemi']->gold . " Or";
-                    $_SESSION['fight']['html'][] = "Vous avez tuez votre ennemi.";
+                    $_SESSION['perso']['xp'] += $_SESSION['fight']['ennemi']->xp;
+                    $_SESSION['fight']['html'][] = "<div class='alert'>Vous gagnez " . $_SESSION['fight']['ennemi']->gold . " Or.<br />Vous avez tuez votre ennemi.</div>";
                 }
             } else {
                 $_SESSION['fight']['html'][] = "Vous ratez votre ennmi.";
@@ -85,8 +85,8 @@
 
             if ($_SESSION['fight']['ennemi']->pol <= 0) {
                 $_SESSION['perso']['gold'] += $_SESSION['fight']['ennemi']->gold;
-                $_SESSION['fight']['html'][] = "Vous gagnez " . $_SESSION['fight']['ennemi']->gold . " Or";
-                $_SESSION['fight']['html'][] = "Vous avez tuez votre ennemi.";
+                $_SESSION['perso']['xp'] += $_SESSION['fight']['ennemi']->xp;
+                $_SESSION['fight']['html'][] = "<div class='alert'>Vous gagnez " . $_SESSION['fight']['ennemi']->gold . " Or.<br />Vous avez tuez votre ennemi.</div>";
             } else {
                 $_SESSION['fight']['html'][] = "Votre ennemi attaque";
                 $touche = random_int(0, 20);
@@ -126,58 +126,65 @@
 
     // Sauvegarde de l'état de votre personnage
     $bdd = connect();
-    $sql = "UPDATE persos SET `gold` = :gold, `pdv` = :pdv WHERE id = :id AND user_id = :user_id;";    
+    $sql = "UPDATE persos SET `gold` = :gold, `pdv` = :pdv, `xp` = :xp WHERE id = :id AND user_id = :user_id;";    
     $sth = $bdd->prepare($sql);
 
     $sth->execute([
         'gold'      => $_SESSION['perso']['gold'],
         'pdv'       => $_SESSION['perso']['pdv'],
+        'xp'        => $_SESSION['perso']['xp'],
         'id'        => $_SESSION['perso']['id'],
         'user_id'   => $_SESSION['user']['id']
     ]);
 
     // dd($_SESSION);
 
-    if ($_SESSION['perso']['pdv'] <= 0) {
-        unset($_SESSION['perso']);
-        unset($_SESSION['fight']);
-        header('Location: persos.php');
-    }
-
     require_once('_header.php');
 ?>
     <div class="container">
         <div class="row mt-4">
-            <div class="px-4">
-                <?php require_once('_perso.php'); ?>
-            </div>
-            <div class="">
-                <h1>Combat</h1>
-                <?php
+            
+                <div class="px-4">
+                    <?php require_once('_perso.php'); ?>
+                </div>
+                <div class="w-60">
+                    <h1>Combat</h1>
+                    <?php
 
-                    foreach($_SESSION['fight']['html'] as $html) {
-                        echo '<p>'.$html.'</p>';
-                    }
+                        foreach($_SESSION['fight']['html'] as $html) {
+                            echo '<div>'.$html.'</div>';
+                        }
 
-                ?>
+                    ?>
+                    <?php if ($_SESSION['perso']['pdv'] > 0) { ?>
+                        <?php if ($_SESSION['fight']['ennemi']->pol > 0) { ?>
+                            <a class="btn btn-green" href="donjon_fight.php?id=<?php echo $_GET['id']; ?>">
+                                Attaquer
+                            </a>
+                            <a class="btn btn-blue" href="donjon_play.php?id=<?php echo $_GET['id']; ?>">
+                                Fuir
+                            </a>
+                        <?php } else { ?>
+                            <a class="btn btn-green" href="donjon_play.php?id=<?php echo $_GET['id']; ?>">
+                                Continuer l'exploration
+                            </a>
+                        <?php } ?>
+                    <?php } else { ?>
 
-                <?php if ($_SESSION['fight']['ennemi']->pol > 0) { ?>
-                    <a class="btn btn-green" href="donjon_fight.php?id=<?php echo $_GET['id']; ?>">
-                        Attaquer
-                    </a>
-                    <a class="btn btn-blue" href="donjon_play.php?id=<?php echo $_GET['id']; ?>">
-                        Fuir
-                    </a>
-                <?php } else { ?>
-                    <a class="btn btn-green" href="donjon_play.php?id=<?php echo $_GET['id']; ?>">
-                        Continuer l'exploration
-                    </a>
-                <?php } ?>
-            </div>
+                        <div class="alert">Vous êtes mort au combat</div>
+                        <a class="btn btn-green" href="persos.php?msg=Votre personnage est mort">Choisir un nouveau personnage</a>
+                    <?php } ?>
+                </div>
             <div class="px-4">
                 <?php require_once('_ennemi.php'); ?>
             </div>
         </div>
     </div>
+        <?php
+        if ($_SESSION['perso']['pdv'] <= 0) {
+            unset($_SESSION['perso']);
+            unset($_SESSION['fight']);
+        }
+    ?>
     </body>
 </html>

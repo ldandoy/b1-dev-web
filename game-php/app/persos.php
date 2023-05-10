@@ -23,18 +23,25 @@
 <?php require_once('_header.php'); ?>
 
 <div class="container">
+    <?php if (isset($_GET['msg'])) {
+        echo "<div class='alert'>" . $_GET['msg'] . "</div>";
+    } ?>
     <h1>Vos personnages</h1>
     <a class="btn btn-green" href="persos_add.php">Créer un personnage</a>
-
-    <?php if (isset($_GET['msg'])) {
-        echo "<div>" . $_GET['msg'] . "</div>";
-    } ?>
 
     <table class="table">
         <thead>
             <tr>
                 <th width="2%">ID</th>
                 <th>Nom</th>
+                <th>Expérience</th>
+                <th>Point de vie</th>
+                <th>Force</th>
+                <th>Dextérité</th>
+                <th>charisme</th>
+                <th>Intelligence</th>
+                <th>Vitesse</th>
+                <th>Or</th>
                 <th width="30%">Action</th>
             </tr>
         </thead>
@@ -43,11 +50,26 @@
                 <tr>
                     <td><?php echo $perso['id']; ?></td>
                     <td><?php echo $perso['name']; ?></td>
-                    <td>
-                        <a 
-                            class="btn btn-grey"
-                            href="persos_choice.php?id=<?php echo $perso['id']; ?>" 
-                        >Choisir</a>
+                    <td><?php echo $perso['xp']; ?></td>
+                    <td><?php echo $perso['pdv']; ?></td>
+                    <td><?php echo $perso['for']; ?></td>
+                    <td><?php echo $perso['dex']; ?></td>
+                    <td><?php echo $perso['char']; ?></td>
+                    <td><?php echo $perso['int']; ?></td>
+                    <td><?php echo $perso['vit']; ?></td>
+                    <td><?php echo $perso['gold']; ?></td>
+                    <td align="right">
+                        <? if ($perso['pdv'] > 0) { ?>
+                            <a 
+                                class="btn btn-grey"
+                                href="persos_choice.php?id=<?php echo $perso['id']; ?>" 
+                            >Choisir</a>
+                        <?php } else { ?>
+                            <a 
+                                class="btn btn-green"
+                                href="persos_respawn.php?id=<?php echo $perso['id']; ?>" 
+                            >Résussité</a>
+                        <?php } ?>
 
                         <a 
                             class="btn btn-grey"
