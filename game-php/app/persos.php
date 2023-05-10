@@ -59,7 +59,7 @@
                     <td><?php echo $perso['vit']; ?></td>
                     <td><?php echo $perso['gold']; ?></td>
                     <td align="right">
-                        <? if ($perso['pdv'] > 0) { ?>
+                        <?php if ($perso['pdv'] > 0) { ?>
                             <a 
                                 class="btn btn-grey"
                                 href="persos_choice.php?id=<?php echo $perso['id']; ?>" 
